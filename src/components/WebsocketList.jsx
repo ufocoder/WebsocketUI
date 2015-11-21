@@ -34,8 +34,11 @@ WebsocketItem.propTypes = {
 }
 
 class WebsocketList extends React.Component {
+  hasData() {
+    return _.size(this.props.websockets)
+  }
   render() {
-    if (_.size(this.props.websockets)) {
+    if (this.hasData()) {
       return (
         <div>
           { this.props.websockets.map(function(websocket, id) {
