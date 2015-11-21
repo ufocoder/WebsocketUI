@@ -14,6 +14,18 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
+      },
+      {
+        test: /\.css$/,
+        loader: 'style!css'
+      },
+      {
+        test: /\.(gif|png)$/,
+        loader: 'url?limit=64000&name=images/[name].[ext]'
+      },
+      {
+        test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=.&]+)?$/,
+        loader: 'file?name=fonts/[name].[ext]'
       }
     ]
   }
