@@ -16,7 +16,8 @@
     "flux": "^2.1.1",
     "keymirror": "^0.1.1",
     "react": "^0.14.2",
-    "react-dom": "^0.14.2"
+    "react-dom": "^0.14.2",
+    "semantic-ui-css": "^2.1.6"
   },
   "devDependencies": {
     "babel-core": "^6.1.21",
