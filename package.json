@@ -2,15 +2,26 @@
   "name": "WebsocketUI",
   "version": "0.0.1",
   "description": "UI tool to connect and send messages to specified websocket",
-  "main": "index.jsx",
+  "main": "src/app.jsx",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "scripts": {
     "build": "webpack -p --progress",
     "dev": "webpack -d --progress",
     "watch": "webpack --progress --colors --watch",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start ./karma.config.js --single-run",
+    "tdd": "karma start ./karma.config.js"
   },
   "author": "Sergey Ivanov <xufocoder@gmail.com>",
   "license": "MIT",
+  "jest": {
+    "unmockedModulePathPatterns": [
+      "node_modules/react",
+      "node_modules/react-dom"
+    ],
+    "scriptPreprocessor": "tests/preprocessor/jest.js"
+  },
   "dependencies": {
     "classnames": "^2.2.0",
     "flux": "^2.1.1",
@@ -21,11 +32,17 @@
   },
   "devDependencies": {
     "babel-core": "^6.1.21",
+    "babel-jest": "^6.0.1",
     "babel-loader": "^6.1.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
     "css-loader": "^0.23.0",
     "file-loader": "^0.8.4",
+    "jest-webpack-alias": "^2.0.0",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs2-launcher": "^0.3.2",
+    "karma-sourcemap-loader": "^0.3.6",
+    "karma-webpack": "^1.7.0",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.6",
     "webpack": "^1.12.6",
