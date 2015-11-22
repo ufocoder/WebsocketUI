@@ -9,7 +9,6 @@ describe('WebsocketUI', function () {
         componentNode = ReactDOM.findDOMNode(component);
 
     expect(component).not.toBeUndefined()
-    expect(componentNode).not.toBeUndefined()
     expect(componentNode.textContent).toContain('There\'re no connections')
   });
 });
