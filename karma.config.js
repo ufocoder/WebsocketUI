@@ -5,10 +5,10 @@ webpackConfig.devtool = 'inline-source-map';
 module.exports = function(config) {
     config.set({
         frameworks: ['jasmine'],
-        browsers: ['PhantomJS2'],
+        browsers: ['PhantomJS'],
         plugins: [
             'karma-jasmine',
-            'karma-phantomjs2-launcher',
+            'karma-phantomjs-launcher',
             'karma-sourcemap-loader',
             require('karma-webpack')
         ],
@@ -32,6 +32,7 @@ module.exports = function(config) {
             noInfo: true
         },
         files: [
+            './node_modules/phantomjs-polyfill/bind-polyfill.js',
             'webpack.tests.js'
         ]
     });
