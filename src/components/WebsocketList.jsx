@@ -30,12 +30,17 @@ class WebsocketItem extends React.Component {
           <div>
             {
               websocket.isOpen() ?
-              <a href="#" onClick={this._handleWebsocketClose.bind(this)}>[ close ]</a> :
-              <a href="#" onClick={this._handleWebsocketDestroy.bind(this)}>[ destroy ]</a>
+                <a href="#" onClick={this._handleWebsocketClose.bind(this)}>[ close ]</a> :
+                <a href="#" onClick={this._handleWebsocketDestroy.bind(this)}>[ destroy ]</a>
             }
           </div>
         </div>
-        <MessageForm onSubmit={this._onMessageSubmit.bind(this)} />
+        {
+          websocket.isOpen() ?
+            <MessageForm onSubmit={this._onMessageSubmit.bind(this)} /> :
+            false
+        }
+
         <WebsocketMessages messages={websocket.messages} />
       </div>
     )
