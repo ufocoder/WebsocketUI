@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack -p --progress",
     "dev": "webpack -d --progress",
-    "hot": "webpack-dev-server --progress --colors --content-base=./public --port=8888",
+    "watch": "webpack --progress --colors --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sergey Ivanov <xufocoder@gmail.com>",
