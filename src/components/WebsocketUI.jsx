@@ -40,6 +40,7 @@ class WebsocketUI extends React.Component {
         </div>
         <div className="ui clearing divider"></div>
         <CreateForm onSubmit={this._onSubmit.bind(this)} />
+        <div className="ui clearing divider"></div>
         <WebsocketList websockets={this.state.websockets} />
       </div>
     )
