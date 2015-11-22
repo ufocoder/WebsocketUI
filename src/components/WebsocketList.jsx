@@ -50,7 +50,7 @@ class WebsocketList extends React.Component {
       return (
         <div className="ui inverted segment">
           <div className="ui inverted relaxed divided list">
-            No connections
+            There're no connections
           </div>
         </div>
       )
