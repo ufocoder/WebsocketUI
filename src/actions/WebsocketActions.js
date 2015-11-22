@@ -1,5 +1,5 @@
-var AppDispatcher = require('../dispatcher/AppDispatcher');
-var WebsocketConstants = require('../constants/WebsocketConstants');
+import AppDispatcher from '../dispatcher/AppDispatcher'
+import WebsocketConstants from '../constants/WebsocketConstants'
 
 var WebsocketActions = {
   create: function(address) {
