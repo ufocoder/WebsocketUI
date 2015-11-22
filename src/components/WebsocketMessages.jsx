@@ -39,7 +39,7 @@ class MessageList extends React.Component {
       return <MessageItem key={index} message={message} />
     }) : null;
     return (
-      <div className="ui inverted segment">
+      <div className="ui inverted">
         <div className="ui inverted relaxed divided list">
           {items}
         </div>
