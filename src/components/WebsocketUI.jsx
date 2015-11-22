@@ -35,6 +35,9 @@ class WebsocketUI extends React.Component {
           <i className="settings icon"></i>
           <div className="content">Websocket UI</div>
         </h3>
+        <div className="ui visible message">
+          <p>For test use, URL: ws://echo.websocket.org</p>
+        </div>
         <div className="ui clearing divider"></div>
         <CreateForm onSubmit={this._onSubmit.bind(this)} />
         <WebsocketList websockets={this.state.websockets} />
