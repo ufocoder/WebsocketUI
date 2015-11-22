@@ -5,7 +5,12 @@ import WebsocketMessages from './WebsocketMessages.jsx'
 import WebsocketActions from '../actions/WebsocketActions'
 
 class WebsocketItem extends React.Component {
-  _handleWebsocketRemove(e) {
+  _handleWebsocketClose(e) {
+    e.preventDefault();
+    WebsocketActions.close(this.props.id)
+    return false;
+  }
+  _handleWebsocketDestroy(e) {
     e.preventDefault();
     WebsocketActions.destroy(this.props.id)
     return false;
@@ -19,7 +24,16 @@ class WebsocketItem extends React.Component {
     return (
       <div className="ui inverted segment">
         <div className="ui attached inverted divided list">
-            {websocket.address} <a href="#" onClick={this._handleWebsocketRemove.bind(this)}>[ disconnect ]</a>
+          <div>
+            {websocket.address}
+          </div>
+          <div>
+            {
+              websocket.isOpen() ?
+              <a href="#" onClick={this._handleWebsocketClose.bind(this)}>[ close ]</a> :
+              <a href="#" onClick={this._handleWebsocketDestroy.bind(this)}>[ destroy ]</a>
+            }
+          </div>
         </div>
         <MessageForm onSubmit={this._onMessageSubmit.bind(this)} />
         <WebsocketMessages messages={websocket.messages} />
