@@ -8,6 +8,12 @@ var WebsocketActions = {
       address: address
     });
   },
+  disconnect: function(id) {
+    AppDispatcher.dispatch({
+      actionType: WebsocketConstants.WEBSOCKET_CLOSE,
+      id: id
+    });
+  },
   destroy: function(id) {
     AppDispatcher.dispatch({
       actionType: WebsocketConstants.WEBSOCKET_DESTROY,

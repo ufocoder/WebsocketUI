@@ -13,6 +13,12 @@ function createWebsocket (address) {
   }))
 }
 
+function closeWebsocket (id) {
+  if (_websockets[id].isOpen()) {
+    _websockets[id].close()
+  }
+}
+
 function sendWebsocketMessage (id, message) {
   if (_websockets[id].isOpen()) {
     _websockets[id].send(message)
@@ -20,9 +26,7 @@ function sendWebsocketMessage (id, message) {
 }
 
 function destroyWebsocket (id) {
-  if (_websockets[id].isOpen()) {
-    _websockets[id].close()
-  }
+  closeWebsocket(id)
   _websockets.splice(id, 1)
 }
 
@@ -45,7 +49,11 @@ AppDispatcher.register(function(action) {
   switch(action.actionType) {
     case WebsocketConstants.WEBSOCKET_CREATE:
       createWebsocket(action.address);
-      break;
+    break;
+
+    case WebsocketConstants.WEBSOCKET_CLOSE:
+      closeWebsocket(action.address);
+    break;
 
     case WebsocketConstants.WEBSOCKET_DESTROY:
       destroyWebsocket(action.id);
