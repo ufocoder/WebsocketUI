@@ -24,7 +24,7 @@
       "node_modules/react",
       "node_modules/react-dom"
     ],
-    "scriptPreprocessor": "tests/preprocessor/jest.js"
+    "scriptPreprocessor": "jest.preprocessor.js"
   },
   "dependencies": {
     "classnames": "^2.2.0",
