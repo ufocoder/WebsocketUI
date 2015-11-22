@@ -8,7 +8,7 @@ var WebsocketActions = {
       address: address
     });
   },
-  disconnect: function(id) {
+  close: function(id) {
     AppDispatcher.dispatch({
       actionType: WebsocketConstants.WEBSOCKET_CLOSE,
       id: id
