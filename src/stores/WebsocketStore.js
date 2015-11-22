@@ -52,7 +52,7 @@ AppDispatcher.register(function(action) {
     break;
 
     case WebsocketConstants.WEBSOCKET_CLOSE:
-      closeWebsocket(action.address);
+      closeWebsocket(action.id);
     break;
 
     case WebsocketConstants.WEBSOCKET_DESTROY:
