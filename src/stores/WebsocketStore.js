@@ -8,24 +8,22 @@ var _websockets = [],
     WebsocketStore;
 
 function createWebsocket (address) {
-  _websockets.push(new WebsocketWrapper(address))
+  _websockets.push(new WebsocketWrapper(address, () => {
+    WebsocketStore.emitChange()
+  }))
 }
 
 function sendWebsocketMessage (id, message) {
-  if (_websockets[id].socket) {
-    _websockets[id].socket.send(message)
+  if (_websockets[id].isOpen()) {
+    _websockets[id].send(message)
   }
 }
 
 function destroyWebsocket (id) {
-  if (_websockets[id].socket) {
-    _websockets[id].socket.onclose = function(){
-      _websockets.splice(id, 1)
-    }
-    _websockets[id].socket.close()
-  }else{
-    _websockets.splice(id, 1)
+  if (_websockets[id].isOpen()) {
+    _websockets[id].close()
   }
+  _websockets.splice(id, 1)
 }
 
 WebsocketStore = _.extend({}, EventEmitter.prototype, {
