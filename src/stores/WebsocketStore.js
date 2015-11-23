@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import AppDispatcher from '../dispatcher/AppDispatcher'
 import EventEmitter from 'events'
-import WebsocketWrapper from '../WebsocketWrapper'
+import WebsocketWrapper from '../models/Websocket'
 import WebsocketConstants from '../constants/WebsocketConstants'
 
 var _websockets = [],

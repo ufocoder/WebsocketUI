@@ -1,4 +1,4 @@
-import MessageConstants from './constants/MessageConstants'
+import MessageConstants from '../constants/MessageConstants'
 
 const STATE_CONNECTING = 0
 const STATE_OPEN = 1
