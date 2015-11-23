@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import 'semantic-ui-css/semantic.css'
 
 import React from 'react'
