@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
-import WebsocketUI from '../src/components/WebsocketUI.jsx'
+import WebsocketUI from '../../src/components/WebsocketUI.jsx'
 import TestUtils from 'react/lib/ReactTestUtils'
 
 describe('WebsocketUI', function () {
