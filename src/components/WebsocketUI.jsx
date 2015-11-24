@@ -5,6 +5,7 @@ import WebsocketActions from '../actions/WebsocketActions'
 import WebsocketStore from '../stores/WebsocketStore'
 import WebsocketList from './WebsocketList.jsx'
 
+const defaultAddress = (Browser.isSecureProtocol() ? "wss" : "ws") + "://echo.websocket.org"
 
 function getWebsocketUIState() {
   return {
@@ -38,7 +39,7 @@ class WebsocketUI extends React.Component {
             <div className="content">Websocket UI</div>
           </h3>
           <div className="ui visible message">
-            <p>For test use, URL: ws://echo.websocket.org</p>
+            <p>For test use, URL: {defaultAddress}</p>
           </div>
           <div className="ui clearing divider"></div>
           <CreateForm onSubmit={this._onSubmit.bind(this)} />
