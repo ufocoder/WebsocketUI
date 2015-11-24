@@ -4,7 +4,7 @@ import MessageConstants from '../constants/MessageConstants'
 
 class MessageItem extends React.Component {
   getIconClassNames(type) {
-    return classNames('large middle aligned icon', {
+    return classNames('middle aligned icon', {
       'flag': type === MessageConstants.TYPE_OPEN || type === MessageConstants.TYPE_CLOSE,
       'warning circle': type === MessageConstants.TYPE_DISCONNECT,
       'warning sign': type === MessageConstants.TYPE_ERROR,
@@ -24,7 +24,6 @@ class MessageItem extends React.Component {
     )
   }
 }
-
 MessageItem.propTypes = {
   message: React.PropTypes.shape({
     datetime: React.PropTypes.object,
@@ -39,10 +38,8 @@ class MessageList extends React.Component {
       return <MessageItem key={index} message={message} />
     }) : null;
     return (
-      <div className="ui inverted">
-        <div className="ui inverted relaxed divided list">
-          {items}
-        </div>
+      <div className="ui list">
+        {items}
       </div>
     );
   }

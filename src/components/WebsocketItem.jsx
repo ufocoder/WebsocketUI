@@ -22,18 +22,15 @@ class WebsocketItem extends React.Component {
     var websocket = this.props.websocket;
 
     return (
-      <div className="ui inverted segment">
-        <div className="ui attached inverted divided list">
-          <div>
-            {websocket.address}
-          </div>
-          <div>
-            {
-              websocket.isOpen() ?
-                <a href="#" onClick={this._handleWebsocketClose.bind(this)}>[ close ]</a> :
-                <a href="#" onClick={this._handleWebsocketDestroy.bind(this)}>[ destroy ]</a>
-            }
-          </div>
+      <div className="ui top attached segment">
+        <div className="ui top attached label">
+
+          {
+            websocket.isOpen() ?
+              <i onClick={this._handleWebsocketClose.bind(this)} alt="Disconnect" className="plug link icon"></i>:
+              <i onClick={this._handleWebsocketDestroy.bind(this)} alt="Remove" className="trash link icon"></i>
+          }
+          {websocket.address}
         </div>
         {
           websocket.isOpen() ?
