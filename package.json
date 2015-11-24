@@ -19,13 +19,6 @@
   },
   "author": "Sergey Ivanov <xufocoder@gmail.com>",
   "license": "MIT",
-  "jest": {
-    "unmockedModulePathPatterns": [
-      "node_modules/react",
-      "node_modules/react-dom"
-    ],
-    "scriptPreprocessor": "jest.preprocessor.js"
-  },
   "dependencies": {
     "classnames": "^2.2.0",
     "flux": "^2.1.1",
@@ -44,7 +37,6 @@
     "babel-preset-react": "^6.1.18",
     "css-loader": "^0.23.0",
     "file-loader": "^0.8.4",
-    "jest-webpack-alias": "^2.0.0",
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-sourcemap-loader": "^0.3.6",
