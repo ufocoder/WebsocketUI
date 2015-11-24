@@ -1,4 +1,5 @@
 import React from 'react'
+import Browser from '../models/Browser'
 import CreateForm from './form/CreateForm.jsx'
 import WebsocketActions from '../actions/WebsocketActions'
 import WebsocketStore from '../stores/WebsocketStore'
@@ -29,21 +30,34 @@ class WebsocketUI extends React.Component {
       WebsocketActions.create(address)
   }
   render() {
-    return (
-      <div className="ui segment">
-        <h3 className="ui header">
-          <i className="settings icon"></i>
-          <div className="content">Websocket UI</div>
-        </h3>
-        <div className="ui visible message">
-          <p>For test use, URL: ws://echo.websocket.org</p>
+    if (Browser.isSupportWebsocket()) {
+      return (
+        <div className="ui segment">
+          <h3 className="ui header">
+            <i className="settings icon"></i>
+            <div className="content">Websocket UI</div>
+          </h3>
+          <div className="ui visible message">
+            <p>For test use, URL: ws://echo.websocket.org</p>
+          </div>
+          <div className="ui clearing divider"></div>
+          <CreateForm onSubmit={this._onSubmit.bind(this)} />
+          <div className="ui clearing divider"></div>
+          <WebsocketList websockets={this.state.websockets} />
         </div>
-        <div className="ui clearing divider"></div>
-        <CreateForm onSubmit={this._onSubmit.bind(this)} />
-        <div className="ui clearing divider"></div>
-        <WebsocketList websockets={this.state.websockets} />
-      </div>
-    )
+      )
+    } else {
+      return (
+        <div className="ui negative message">
+          <div className="header">
+            Attention
+          </div>
+          <p>
+            We're sorry your browser does not support WebSocket
+          </p>
+        </div>
+      )
+    }
   }
 }
 
