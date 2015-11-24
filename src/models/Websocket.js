@@ -8,7 +8,7 @@ const STATE_CLOSED = 3
 const socketProperty = Symbol()
 const callbackProperty = Symbol()
 
-class WebsocketWrapper {
+class Websocket {
   constructor(url, callback) {
     this.address = url
     this.messages = []
@@ -67,4 +67,4 @@ class WebsocketWrapper {
   }
 }
 
-export default WebsocketWrapper
+export default Websocket
