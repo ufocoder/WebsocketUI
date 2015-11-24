@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import classNames from 'classnames'
 import MessageConstants from '../constants/MessageConstants'
 
@@ -17,8 +18,8 @@ class MessageItem extends React.Component {
       <div className="item">
         <i className={ this.getIconClassNames(message.type) }></i>
         <div className="content">
-          <div className="header">{message.datetime.toString()}</div>
-          {message.address} [{message.type}] { message.content ? message.content : false}
+          <div className="header">{ moment(message.datetime).format('HH:mm:ss') }</div>
+          [{message.type}] { message.content ? message.content : false}
         </div>
       </div>
     )
