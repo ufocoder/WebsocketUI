@@ -1,6 +1,6 @@
 {
   "name": "WebsocketUI",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "UI tool to connect and send messages to specified websocket",
   "main": "src/app.jsx",
   "engines": {
@@ -31,12 +31,15 @@
   },
   "devDependencies": {
     "babel-core": "^6.1.21",
+    "babel-istanbul-instrumenter-loader": "^1.0.1",
     "babel-loader": "^6.1.0",
     "babel-polyfill": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
     "css-loader": "^0.23.0",
     "file-loader": "^0.8.4",
+    "karma-coverage": "^0.5.3",
+    "karma-coveralls": "^1.1.2",
     "karma-jasmine": "^0.3.6",
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-sourcemap-loader": "^0.3.6",

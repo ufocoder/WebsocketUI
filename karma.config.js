@@ -1,18 +1,37 @@
-var webpackConfig = require('./webpack.config.js');
+var _ = require('lodash'),
+    path = require('path'),
+    webpackConfig = require('./webpack.config.js');
 
-webpackConfig.devtool = 'inline-source-map';
+_.merge(webpackConfig, {
+    devtool: 'inline-source-map',
+    module: {
+      preLoaders: [
+        {
+          test: /\.(js|jsx)?$/,
+          include: path.resolve('src/'),
+          loader: 'babel-istanbul-instrumenter'
+        }
+      ]
+    }
+});
 
 module.exports = function(config) {
     config.set({
         frameworks: ['jasmine'],
         browsers: ['PhantomJS'],
         plugins: [
+            'karma-coveralls',
+            'karma-coverage',
             'karma-jasmine',
             'karma-phantomjs-launcher',
             'karma-sourcemap-loader',
             require('karma-webpack')
         ],
-        reporters: ['progress'],
+        reporters: ['progress', 'coverage', 'coveralls'],
+        coverageReporter: {
+          type : 'lcov',
+          dir: 'coverage/'
+        },
         preprocessors: {
             'webpack.tests.js': [
                 'webpack',
