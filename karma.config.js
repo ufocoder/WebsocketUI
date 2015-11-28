@@ -5,7 +5,7 @@ var _ = require('lodash'),
 _.merge(webpackConfig, {
     devtool: 'inline-source-map',
     module: {
-      preLoaders: [
+      postLoaders: [
         {
           test: /\.(js|jsx)?$/,
           include: path.resolve('src/'),
@@ -20,14 +20,12 @@ module.exports = function(config) {
         frameworks: ['jasmine'],
         browsers: ['PhantomJS'],
         plugins: [
-            'karma-coveralls',
-            'karma-coverage',
             'karma-jasmine',
             'karma-phantomjs-launcher',
             'karma-sourcemap-loader',
             require('karma-webpack')
         ],
-        reporters: ['progress', 'coverage', 'coveralls'],
+        reporters: ['progress'],
         coverageReporter: {
           type : 'lcov',
           dir: 'coverage/'
